@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+ class employee{
+  public:
+  string name;
+  int id;
+  employee(){
+      name="";
+      id=0;
+  }
+ void inp(){
+      cout<<"enter name of employee:"<<endl;
+      cin>>name;
+      cout<<"enter id:"<<endl;
+      cin>>id;
+  }
+};
+int main(){
+	int n;
+	cout<<"enter no. of employees";
+	cin>>n;
+	employee a[n];
+	ofstream f("practical.txt");
+	for(int i=0;i<n;i++){
+		a[i].inp();
+		f << "Name :"<<a[i].name<<endl;
+		f <<"id :"<<a[i].id<<endl;
+	}
+	f.close();
+	ifstream i("practical.txt");
+	string line;
+	while(getline(i,line)){
+		cout<<line<<endl;
+	}
+	i.close();
+	return 0;
+}
+
+
+
+
+
